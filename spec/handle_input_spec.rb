@@ -20,10 +20,10 @@ require 'pry'
     it 'should return a string if command matches place pattern' do
       # binding.pry
       handleinput = HandleInput.new(Robot.new, Table.new)
-      command = 'PLACE 1,2'
+      command = 'PLACE 1,2,NORTH' 
 
       expect(handleinput.interpret(command)).to be_a String
-      expect(handleinput.interpret(command)).to match(/^PLACE\s+\d+\s*,\s*\d+\s*$/)
+      expect(handleinput.interpret(command)).to match(/^PLACE\s+\d+\s*,\s*\d+\s*,\s*(WEST||NORTH||EAST||SOUTH)$/)  
     end
      it 'should return nil if command does not match a valid pattern' do
       handleinput = HandleInput.new(Robot.new, Table.new)
