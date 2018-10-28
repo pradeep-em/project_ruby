@@ -12,17 +12,7 @@ require './lib/robot'
     it 'should return an instance of Position' do
       robot = Robot.new
       command = 'PLACE 1,2'
-      expect(robot.place(command)).to be_a Position
-    end
-     it 'should return nil if command is empty' do
-      	robot = Robot.new
-      	command = ''
-      	expect(robot.place(command)).to be_nil
-    end
-     it 'should return nil if command does not match the place pattern' do
-     	robot = Robot.new
-      command = 'get'
-      expect(robot.place(command)).to be_nil
+      expect(robot.place(0, 0)).to be_a Position
     end
   end
    describe '#update_robot' do

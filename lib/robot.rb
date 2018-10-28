@@ -8,12 +8,8 @@ class Robot
     @pos = nil
   end
   
-  def place(command)
-    place = /^PLACE\s+\d+\s*,\s*\d+\s*$/
-     if place.match?(command)
-      command, x, y = command.tr(',', ' ').split
-       Position.new(x.to_i, y.to_i)
-    end
+  def place(x, y)
+    Position.new(x, y)
   end
    # Update the robot's position
   def update_robot(new_position)
