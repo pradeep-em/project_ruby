@@ -4,7 +4,7 @@ require_relative 'position'
 class Robot
   attr_reader :position
 
-  def intialize
+  def initialize
     @position = nil
   end
 

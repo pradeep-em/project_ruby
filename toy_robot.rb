@@ -11,6 +11,8 @@ $stdout.print "Options: PLACE X,Y,F; MOVE; LEFT; RIGHT; REPORT; EXIT\n"
 while "infinite"
   input = gets.chomp
 
+  next if input.empty?
+
   unless 'EXIT'.match?(input)
     command.interpret(input)
     next

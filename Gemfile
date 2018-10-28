@@ -1,3 +1,8 @@
 source 'https://rubygems.org'
  gem 'rspec'
- gem 'pry'
+ 
+
+ group :test do
+  gem 'pry'
+  gem 'simplecov', require: false
+end 
