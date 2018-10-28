@@ -1,4 +1,4 @@
-# position class is added
+# position
 class Position
   attr_accessor :x, :y, :f  
 

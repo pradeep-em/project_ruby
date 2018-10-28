@@ -2,23 +2,18 @@ require_relative './lib/table'
 require_relative './lib/robot'
 require_relative './lib/handle_input'
 
-#creating table object
-@table = Table.new
-# creating robot object
-@robot = Robot.new
+command = HandleInput.new(Robot.new, Table.new)
 
-# infinit loop for taking inputs
-input = ""
+# Keep reading user inputs while the program is running
 while "infinite"
-  puts 'Enter your command'
+  puts 'Select your command'
   input = gets.chomp
-  
+
   unless /^EXIT$/.match?(input)
-    command = HandleInput.new(robot, table)
     command.interpret(input)
     next
   end
 
-  puts 'Goodbye!'
+  $stdout.print "Goodbye! \n"
   break
 end
