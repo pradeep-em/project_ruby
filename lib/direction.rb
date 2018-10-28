@@ -1,27 +1,37 @@
 # Direction class
 
 class Direction
-  attr_reader :start_direction
-  def initialize(start_direction)
-    @start_direction = start_direction
-    @directions_array = %w[WEST NORTH EAST SOUTH]
-  end
-  def turn_right(current_direction)
-    puts 'turn right'
-    # does the current direction exist?
-    return unless @directions_array.include?(current_direction)
-    i = @directions_array.index { |e| e == current_direction }
-    unless current_direction == @directions_array.last
+  OPTIONS = %w[WEST NORTH EAST SOUTH].freeze
+
+  def turn_right(direction)
+    # Return unless the direction exists
+    return unless OPTIONS.include?(direction)
+
+    i = OPTIONS.index { |e| e == direction }
+
+    # Find next value in array
+    unless direction == OPTIONS.last
       i += 1
-      new_direction = @directions_array.fetch(i)
-      puts "New Direction: #{new_direction}"
-      return new_direction
+
+      return OPTIONS.fetch(i)
     end
-    puts "New Direction: #{@directions_array.first}"
+
+    OPTIONS.first
+  end
+
+  def turn_left(direction)
+    # Return if unless the direction exists
+    return unless OPTIONS.include?(direction)
+
+    i = OPTIONS.index { |e| e == direction }
+
+    # Find next value in array
+    unless direction == OPTIONS.first
+      i -= 1
+
+      return OPTIONS.fetch(i)
+    end
+
+    OPTIONS.last
   end
 end
-
-direction = Direction.new('NORTH')
-puts "Starting at #{direction.start_direction}"
-current_direction = direction.start_direction
-direction.turn_right(current_direction)
