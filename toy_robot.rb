@@ -1,22 +1,17 @@
-require_relative './lib/table'
 require_relative './lib/robot'
-# creating table objects
-@table = Table.new
+# creating robot object
 @robot = Robot.new
- # it will verify position is valid or not
-puts @table.valid_position?(1, 0)
 
-# print a message if robot's position is nil
-puts 'Robot position is not present' if @robot.pos.nil?
-
-
- # infinit loop for taking inputs
+# infinit loop for taking inputs
 input = ""
 while "infinite"
   puts 'Enter your command'
   input = gets.chomp
   unless input == 'EXIT'
-    puts 'Robot has been placed' if input == 'PLACE'
+    position = @robot.place(input)
+    puts "Position: #{position.x},#{position.y}"
+    @robot.update_robot(position)
+    puts 'placed' unless @robot.not_in_place?
     next
   end
   puts 'Goodbye!'
