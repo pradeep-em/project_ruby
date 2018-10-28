@@ -1,34 +1,35 @@
 require 'rspec'
 require 'spec_helper'
-require './lib/table'
-require './lib/robot'
 require './lib/handle_input'
-require 'pry'
 
- describe HandleInput do
+describe HandleInput do
   describe '#initialize' do
     it 'should have a robot attribute which is nil' do
-      handleinput = HandleInput.new(@robot, @table)
-      expect(handleinput.robot).to be_nil
+      handle_input = HandleInput.new(@robot, @table)
+
+      expect(handle_input.robot).to be_nil
     end
-     it 'should have a table attribute which is nil' do
-      handleinput = HandleInput.new(@robot, @table)
-      expect(handleinput.table).to be_nil
+
+    it 'should have a table attribute which is nil' do
+      handle_input = HandleInput.new(@robot, @table)
+
+      expect(handle_input.table).to be_nil
     end
   end
-   describe '#interpret' do
-    it 'should return a string if command matches place pattern' do
-      # binding.pry
-      handleinput = HandleInput.new(Robot.new, Table.new)
-      command = 'PLACE 1,2,NORTH' 
 
-      expect(handleinput.interpret(command)).to be_a String
-      expect(handleinput.interpret(command)).to match(/^PLACE\s+\d+\s*,\s*\d+\s*,\s*(WEST||NORTH||EAST||SOUTH)$/)  
+  describe '#interpret' do
+    it 'should return an instance of Position command matches place pattern' do
+      handle_input = HandleInput.new(Robot.new, Table.new)
+      command = 'PLACE 1,2,NORTH'
+
+      expect(handle_input.interpret(command)).to be_a Position
     end
-     it 'should return nil if command does not match a valid pattern' do
-      handleinput = HandleInput.new(Robot.new, Table.new)
+
+    it 'should return nil if command does not match a valid pattern' do
+      handle_input = HandleInput.new(Robot.new, Table.new)
       command = 'hello'
-      expect(handleinput.interpret(command)).to be_nil
+
+      expect(handle_input.interpret(command)).to be_nil
     end
   end
 end
