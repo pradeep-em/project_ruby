@@ -1,5 +1,3 @@
-***
-
 ## Usage
 Run the program from the app root
 > $ ruby toy_robot.rb
@@ -9,7 +7,7 @@ Expected terminal output:
 
 Commands | Description
 --- | ---
-PLACE X,Y,F | Place the robot on the table at coordinates x,y and facing the direction f. Valid x andy values are between 0-4. Valid directions are WEST, NORTH, EAST, SOUTH. Example Input: "PLACE 0,0,NORTH"
+PLACE X,Y,F | Place the robot on the table at coordinates x,y and facing the direction f. Valid x and y values are between 0-4. Valid directions are WEST, NORTH, EAST, SOUTH. Example Input: "PLACE 0,0,NORTH"
 MOVE | Move the robot forward 1 step in the direction it is facing.
 LEFT | Turn the robot's direction 90 degress to the left. I.e. if the robot is facing NORTH, 1 left turn will turn the robot's direction to WEST.
 RIGHT | Turn the robot's direction 90 degress to the right. I.e. if the robot is facing NORTH, 1 left turn will turn the robot's direction to EAST.
